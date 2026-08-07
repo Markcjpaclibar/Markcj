@@ -44,3 +44,30 @@ body::after {
   pointer-events: none;
   z-index: -1;
 }
+
+/* ==========================
+   Featured Projects Pagination
+========================== */
+
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 2rem !important;
+}
+
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 9999px !important;
+  background: rgba(16, 211, 18, 0.25) !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet:hover {
+  background: rgba(16, 211, 18, 0.6) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #10D312 !important;
+  transform: scale(1.25);
+}

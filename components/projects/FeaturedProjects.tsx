@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 import FadeLeft from "../animations/FadeLeft";
 import FadeRight from "../animations/FadeRight";
@@ -8,9 +8,15 @@ import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperType } from "swiper";
+import {
+  Mousewheel,
+  Autoplay,
+  Pagination,
+} from "swiper/modules";
 
 import "swiper/css";
+import "swiper/css/mousewheel";
+import "swiper/css/pagination";
 
 const projects = [
   {
@@ -60,9 +66,6 @@ export default function FeaturedProjects() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const swiperRef = useRef<SwiperType | null>(null);
-  const isScrolling = useRef(false);
-
   const openProject = (project: (typeof projects)[0]) => {
     setSelectedProject(project);
     setIsModalOpen(true);
@@ -70,26 +73,6 @@ export default function FeaturedProjects() {
 
   const closeProject = () => {
     setIsModalOpen(false);
-  };
-
-  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
-    if (!swiperRef.current) return;
-
-    e.preventDefault();
-
-    if (isScrolling.current) return;
-
-    isScrolling.current = true;
-
-    if (e.deltaY > 0) {
-      swiperRef.current.slideNext();
-    } else {
-      swiperRef.current.slidePrev();
-    }
-
-    setTimeout(() => {
-      isScrolling.current = false;
-    }, 500);
   };
 
   return (
@@ -102,7 +85,6 @@ export default function FeaturedProjects() {
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[420px_minmax(0,1fr)]">
 
           {/* Left */}
-
           <FadeLeft>
             <div className="max-w-md">
 
@@ -126,53 +108,64 @@ export default function FeaturedProjects() {
           </FadeLeft>
 
           {/* Right */}
-
           <FadeRight>
 
-            <div onWheel={handleWheel}>
-
-              <Swiper
-                onSwiper={(swiper) => {
-                  swiperRef.current = swiper;
-                }}
-                speed={700}
-                grabCursor
-                spaceBetween={8}
-                slidesPerView={1}
-                breakpoints={{
-                  480: {
-                    slidesPerView: 1.15,
-                  },
-                  640: {
-                    slidesPerView: 1.35,
-                  },
-                  768: {
-                    slidesPerView: 1.55,
-                  },
-                  1024: {
-                    slidesPerView: 1.8,
-                  },
-                  1280: {
-                    slidesPerView: 2,
-                  },
-                  1536: {
-                    slidesPerView: 2.15,
-                  },
-                }}
-              >
-                {projects.map((project) => (
-                  <SwiperSlide key={project.title}>
-                    <ProjectCard
-                      image={project.image}
-                      title={project.title}
-                      category={project.category}
-                      onClick={() => openProject(project)}
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-
-            </div>
+            <Swiper
+              modules={[
+                Mousewheel,
+                Autoplay,
+                Pagination,
+              ]}
+              loop
+              speed={800}
+              grabCursor
+              watchOverflow
+              spaceBetween={12}
+              slidesPerView={1}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              mousewheel={{
+                forceToAxis: true,
+                releaseOnEdges: true,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              breakpoints={{
+                480: {
+                  slidesPerView: 1.15,
+                },
+                640: {
+                  slidesPerView: 1.35,
+                },
+                768: {
+                  slidesPerView: 1.55,
+                },
+                1024: {
+                  slidesPerView: 1.8,
+                },
+                1280: {
+                  slidesPerView: 2,
+                },
+                1536: {
+                  slidesPerView: 2.15,
+                },
+              }}
+            >
+              {projects.map((project) => (
+                <SwiperSlide key={project.title}>
+                  <ProjectCard
+                    image={project.image}
+                    title={project.title}
+                    category={project.category}
+                    onClick={() => openProject(project)}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
           </FadeRight>
 
@@ -185,7 +178,6 @@ export default function FeaturedProjects() {
         project={selectedProject}
         onClose={closeProject}
       />
-
     </section>
   );
 }
