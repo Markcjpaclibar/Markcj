@@ -43,9 +43,13 @@ export default function Services() {
 
           <div
             className="
+              mx-auto
               grid
-              gap-8
+              max-w-6xl
+              gap-5
+              px-4
               sm:grid-cols-2
+              sm:px-0
               xl:grid-cols-4
             "
           >
