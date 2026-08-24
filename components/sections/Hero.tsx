@@ -87,14 +87,14 @@ export default function Hero() {
           <FadeLeft delay={0.45}>
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-4 sm:gap-5">
 
-              {/* Main Button */}
+              {/* Main Button (Direct Mailto Link) */}
               <motion.a
-                href="#contact"
+                href="mailto:your.email@domain.com?subject=Inquiry%20from%20Portfolio"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-[#34D399]/40 bg-[#34D399]/60 px-8 py-3.5 sm:py-4 font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-[#34D399] hover:bg-[#34D399] hover:text-[#070D1B] hover:shadow-[0_0_35px_rgba(52,211,153,0.45)]"
+                className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#34D399] px-8 py-3.5 sm:py-4 font-bold text-[#070D1B] shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all duration-300 hover:bg-[#2ee0a0] hover:text-[#070D1B] hover:shadow-[0_0_35px_rgba(52,211,153,0.6)]"
               >
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full" />
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full" />
                 <span className="relative z-10">Get in touch</span>
               </motion.a>
 
