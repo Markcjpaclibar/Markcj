@@ -89,7 +89,7 @@ export default function Hero() {
 
               {/* Main Button (Direct Mailto Link) */}
               <motion.a
-                href="mailto:your.email@domain.com?subject=Inquiry%20from%20Portfolio"
+                href="mailto:markcjpaclibarcareer@gmail.com?subject=Inquiry%20from%20Portfolio"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#34D399] px-8 py-3.5 sm:py-4 font-bold text-[#070D1B] shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all duration-300 hover:bg-[#2ee0a0] hover:text-[#070D1B] hover:shadow-[0_0_35px_rgba(52,211,153,0.6)]"
