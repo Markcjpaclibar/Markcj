@@ -87,13 +87,14 @@ export default function Hero() {
           <FadeLeft delay={0.45}>
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-4 sm:gap-5">
 
-              {/* Main Button (Direct Mailto Link) */}
+              {/* Main Button (Solid Mint Green #34D399) */}
               <motion.a
-                href="mailto:markcjpaclibarcareer@gmail.com?subject=Inquiry%20from%20Portfolio"
+                href="#contact"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#34D399] px-8 py-3.5 sm:py-4 font-bold text-[#070D1B] shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all duration-300 hover:bg-[#2ee0a0] hover:text-[#070D1B] hover:shadow-[0_0_35px_rgba(52,211,153,0.6)]"
               >
+                {/* Light shimmer sweep on hover */}
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full" />
                 <span className="relative z-10">Get in touch</span>
               </motion.a>
