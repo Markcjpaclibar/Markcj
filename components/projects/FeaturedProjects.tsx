@@ -78,7 +78,7 @@ export default function FeaturedProjects() {
   return (
     <section
       id="projects"
-      className="overflow-hidden py-24 lg:py-32"
+      className="relative overflow-hidden bg-[#070D1B] py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
@@ -88,12 +88,14 @@ export default function FeaturedProjects() {
           <FadeLeft>
             <div className="max-w-md">
 
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#10D312]">
-                Selected Works
-              </p>
+              <div className="mb-3 inline-flex">
+                <span className="rounded-full border border-[#34D399]/30 bg-[#0A1628]/60 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-[#34D399] backdrop-blur-xl">
+                  Selected Works
+                </span>
+              </div>
 
               <h2 className="mt-3 text-4xl font-bold leading-tight text-white sm:text-5xl">
-                Featured Projects
+                Featured <span className="text-[#34D399]">Projects</span>
               </h2>
 
               <p className="mt-7 text-base leading-8 text-gray-400">
@@ -120,7 +122,7 @@ export default function FeaturedProjects() {
               speed={800}
               grabCursor
               watchOverflow
-              spaceBetween={12}
+              spaceBetween={16}
               slidesPerView={1}
               autoplay={{
                 delay: 5000,
@@ -154,6 +156,7 @@ export default function FeaturedProjects() {
                   slidesPerView: 2.15,
                 },
               }}
+              className="!pb-12 [&_.swiper-pagination-bullet]:bg-white/30 [&_.swiper-pagination-bullet-active]:!bg-[#34D399] [&_.swiper-pagination-bullet-active]:!w-6 [&_.swiper-pagination-bullet-active]:!rounded-full"
             >
               {projects.map((project) => (
                 <SwiperSlide key={project.title}>

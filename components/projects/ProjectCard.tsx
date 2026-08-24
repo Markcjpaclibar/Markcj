@@ -38,10 +38,12 @@ export default function ProjectCard({
         rounded-[24px]
         border
         border-white/10
-        bg-[#2A2929]
+        bg-[#0A1628]/50
+        backdrop-blur-xl
         transition-all
         duration-300
-        hover:border-[#10D312]/50
+        hover:border-[#34D399]/50
+        hover:shadow-[0_0_30px_rgba(52,211,153,0.15)]
       "
     >
       {/* Project Image */}
@@ -63,19 +65,19 @@ export default function ProjectCard({
           absolute
           inset-0
           bg-gradient-to-t
-          from-black
-          via-black/25
+          from-[#070D1B]
+          via-[#070D1B]/40
           to-transparent
           transition
           duration-300
-          group-hover:from-black/95
+          group-hover:from-[#070D1B]/95
         "
       />
 
       {/* Content */}
       <div className="absolute bottom-0 left-0 z-10 w-full p-6">
 
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#10D312]">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#34D399]">
           {category}
         </p>
 
@@ -88,7 +90,7 @@ export default function ProjectCard({
             text-white
             transition-colors
             duration-300
-            group-hover:text-[#10D312]
+            group-hover:text-[#34D399]
           "
         >
           {title}
@@ -115,7 +117,7 @@ export default function ProjectCard({
           <ArrowRight
             size={16}
             className="
-              text-[#10D312]
+              text-[#34D399]
               transition-transform
               duration-300
               group-hover:translate-x-1

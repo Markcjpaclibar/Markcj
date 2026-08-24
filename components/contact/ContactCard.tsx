@@ -31,20 +31,22 @@ export default function ContactCard({
         rounded-[15px]
         border
         border-white/10
-        bg-[#2A2929]
+        bg-[#0A1628]/50
         px-4
+        backdrop-blur-xl
         transition-all
         duration-300
         hover:-translate-y-1
-        hover:border-[#10D312]
-        hover:shadow-[0_0_30px_rgba(16,211,18,0.12)]
+        hover:border-[#34D399]/50
+        hover:bg-[#0A1628]/80
+        hover:shadow-[0_0_30px_rgba(52,211,153,0.15)]
       "
     >
       <Icon
         size={22}
         className="
           mb-2
-          text-[#10D312]
+          text-[#34D399]
           transition-all
           duration-300
           group-hover:scale-110
@@ -58,7 +60,7 @@ export default function ContactCard({
           text-white
           transition-colors
           duration-300
-          group-hover:text-[#10D312]
+          group-hover:text-[#34D399]
         "
       >
         {title}
@@ -71,6 +73,9 @@ export default function ContactCard({
           text-[12px]
           text-gray-400
           break-words
+          transition-colors
+          duration-300
+          group-hover:text-gray-300
         "
       >
         {value}

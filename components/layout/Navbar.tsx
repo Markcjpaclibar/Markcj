@@ -20,7 +20,6 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -28,18 +27,17 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/10 bg-[#201F1F]/70 backdrop-blur-xl"
+          ? "border-b border-white/10 bg-[#0A1628]/80 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6 lg:px-12">
-
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-12">
         {/* Logo */}
         <Link
           href="/"
-          className="text-lg font-semibold tracking-wide text-white"
+          className="text-lg font-bold tracking-wide text-white transition hover:opacity-80"
         >
-          MCP PORTFOLIO
+          MCP<span className="text-[#34D399]">.</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -48,45 +46,45 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm text-gray-300 transition hover:text-white"
+              className="text-sm font-medium text-gray-300 transition-colors hover:text-[#34D399]"
             >
               {link.name}
             </Link>
           ))}
 
+          {/* Clean Glass Button */}
           <a
             href="#contact"
-            className="rounded-full bg-[#10D312] px-6 py-3 text-sm font-semibold text-white transition hover:scale-105"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-[#34D399]/40 bg-[#34D399]/60 px-6 py-2.5 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-[#34D399] hover:bg-[#34D399] hover:text-[#070D1B] hover:shadow-[0_0_25px_rgba(52,211,153,0.45)]"
           >
-            Get in touch
+            <span className="relative z-10">Get in touch</span>
           </a>
         </nav>
 
-        {/* Mobile Button */}
+        {/* Mobile Toggle Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="text-white md:hidden"
+          className="text-white md:hidden focus:outline-none"
+          aria-label="Toggle Navigation Menu"
         >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          {menuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       <div
         className={`overflow-hidden transition-all duration-300 md:hidden ${
-          menuOpen ? "max-h-96" : "max-h-0"
+          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="border-t border-white/10 bg-[#201F1F]/90 backdrop-blur-xl">
-
-          <nav className="flex flex-col px-6 py-6">
-
+        <div className="border-t border-white/10 bg-[#0A1628]/95 px-6 py-6 backdrop-blur-2xl">
+          <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="py-4 text-white transition hover:text-[#10D312]"
+                className="text-base font-medium text-gray-200 transition hover:text-[#34D399]"
               >
                 {link.name}
               </Link>
@@ -95,13 +93,11 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-4 rounded-full bg-[#10D312] py-3 text-center font-semibold text-white"
+              className="mt-2 rounded-full border border-[#34D399] bg-[#34D399] py-3 text-center font-semibold text-[#070D1B] shadow-[0_0_20px_rgba(52,211,153,0.3)]"
             >
               Get in touch
             </a>
-
           </nav>
-
         </div>
       </div>
     </header>

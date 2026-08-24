@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
 
 type ProjectModalProps = {
   open: boolean;
@@ -38,22 +39,20 @@ export default function ProjectModal({
       {open && project && (
         <>
           {/* Overlay */}
-
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md"
+            className="fixed inset-0 z-50 bg-[#070D1B]/80 backdrop-blur-md"
           />
 
-          {/* Modal */}
-
+          {/* Modal Container */}
           <motion.div
             initial={{
               opacity: 0,
               scale: 0.96,
-              y: 40,
+              y: 20,
             }}
             animate={{
               opacity: 1,
@@ -63,139 +62,149 @@ export default function ProjectModal({
             exit={{
               opacity: 0,
               scale: 0.96,
-              y: 40,
+              y: 20,
             }}
             transition={{
               duration: 0.3,
               ease: "easeOut",
             }}
-            className="fixed inset-0 z-[60] flex items-center justify-center p-4 lg:p-8"
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 lg:p-8"
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-6xl overflow-hidden rounded-[28px] border border-white/10 bg-[#252424] shadow-2xl"
+              className="
+                relative
+                max-h-[90vh]
+                w-full
+                max-w-5xl
+                overflow-y-auto
+                rounded-[24px]
+                border
+                border-white/10
+                bg-[#0A1628]/95
+                shadow-[0_0_50px_rgba(0,0,0,0.5)]
+                backdrop-blur-2xl
+                lg:max-h-[85vh]
+              "
             >
+              {/* Sticky Close Button for Mobile & Desktop */}
+              <button
+                onClick={onClose}
+                className="
+                  absolute
+                  right-4
+                  top-4
+                  z-30
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-white/10
+                  bg-[#070D1B]/80
+                  text-gray-300
+                  backdrop-blur-md
+                  transition-all
+                  duration-300
+                  hover:border-[#34D399]/50
+                  hover:bg-[#34D399]/10
+                  hover:text-[#34D399]
+                "
+              >
+                <X size={20} />
+              </button>
+
               <div className="grid grid-cols-1 lg:grid-cols-2">
 
-                {/* LEFT */}
-
-                <div className="relative h-[220px] bg-[#1F1F1F] sm:h-[300px] lg:h-[720px]">
-
+                {/* LEFT: Image Section */}
+                <div className="relative flex h-[260px] items-center justify-center border-b border-white/10 bg-[#070D1B]/60 sm:h-[340px] lg:h-full lg:border-b-0 lg:border-r">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-contain p-4 lg:p-8"
+                    className="object-contain p-6 sm:p-8"
                   />
-
                 </div>
 
-                {/* RIGHT */}
+                {/* RIGHT: Content Section */}
+                <div className="flex flex-col p-6 sm:p-8 lg:p-10">
 
-                <div className="flex flex-col p-8 lg:p-12">
-
-                  {/* Close */}
-
-                  <button
-                onClick={onClose}
-                className="
-                    absolute
-                    right-4
-                    top-4
-                    z-20
-                    flex
-                    h-10
-                    w-10
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-white/10
-                    bg-[#2A2929]/90
-                    text-xl
-                    text-gray-300
-                    backdrop-blur-md
-                    transition
-                    hover:border-[#10D312]
-                    hover:text-white
-                "
-                >
-                ✕
-                </button>
-
-                  {/* Category */}
-
-                  <p className="mt-8 text-sm font-semibold uppercase tracking-[0.25em] text-[#10D312]">
-                    {project.category}
-                  </p>
+                  {/* Category Pill */}
+                  <div className="inline-flex">
+                    <span className="rounded-full border border-[#34D399]/30 bg-[#34D399]/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-[#34D399]">
+                      {project.category}
+                    </span>
+                  </div>
 
                   {/* Title */}
-
-                  <h2 className="mt-3 text-3xl font-bold leading-tight text-white lg:text-5xl">
+                  <h2 className="mt-4 text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
                     {project.title}
                   </h2>
 
                   {/* Description */}
-
-                  <p className="mt-8 leading-8 text-gray-400">
+                  <p className="mt-4 text-sm leading-relaxed text-gray-300 sm:text-base">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
-
-                  <div className="mt-10">
-
-                    <h3 className="mb-5 text-lg font-semibold text-white">
+                  <div className="mt-8">
+                    <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
                       Technologies Used
                     </h3>
 
-                    <div className="flex flex-wrap gap-3">
-
+                    <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
                           className="
-                            rounded-full
+                            rounded-xl
                             border
                             border-white/10
-                            bg-[#303030]
-                            px-4
-                            py-2
-                            text-sm
+                            bg-white/[0.04]
+                            px-3.5
+                            py-1.5
+                            text-xs
+                            font-medium
                             text-gray-200
-                            transition
-                            hover:border-[#10D312]
-                            hover:text-[#10D312]
+                            transition-colors
+                            duration-300
+                            hover:border-[#34D399]/40
+                            hover:text-[#34D399]
                           "
                         >
                           {tech}
                         </span>
                       ))}
-
                     </div>
-
                   </div>
 
-                  <div className="mt-auto pt-12">
-
+                  {/* Action Bar */}
+                  <div className="mt-8 pt-4">
                     <button
                       onClick={onClose}
                       className="
-                        rounded-full
+                        w-full
+                        rounded-xl
                         border
-                        border-[#10D312]
-                        px-6
+                        border-[#34D399]
+                        bg-[#34D399]/10
                         py-3
-                        font-medium
-                        text-[#10D312]
-                        transition
-                        hover:bg-[#10D312]
-                        hover:text-white
+                        text-sm
+                        font-semibold
+                        text-[#34D399]
+                        transition-all
+                        duration-300
+                        hover:bg-[#34D399]
+                        hover:text-[#070D1B]
+                        hover:shadow-[0_0_20px_rgba(52,211,153,0.3)]
+                        sm:w-auto
+                        sm:px-8
                       "
                     >
                       Close Project
                     </button>
-
                   </div>
 
                 </div>

@@ -23,27 +23,28 @@ export default function SkillCard({
         rounded-xl
         border
         border-white/10
-        bg-[#2A2929]
+        bg-[#0A1628]/50
+        backdrop-blur-xl
         transition-all
         duration-300
         hover:-translate-y-1
-        hover:border-[#10D312]
-        hover:bg-[#303030]
-        hover:shadow-[0_0_18px_rgba(16,211,18,0.15)]
+        hover:border-[#34D399]
+        hover:bg-[#0A1628]/80
+        hover:shadow-[0_0_20px_rgba(52,211,153,0.2)]
       "
     >
       <Icon
         size={36}
         className="
-          text-white
+          text-gray-200
           transition-all
           duration-300
           group-hover:scale-110
-          group-hover:text-[#10D312]
+          group-hover:text-[#34D399]
         "
       />
 
-      <p className="mt-2 px-2 text-center text-[11px] font-medium leading-tight text-gray-300">
+      <p className="mt-2 px-2 text-center text-[11px] font-medium leading-tight text-gray-300 transition-colors duration-300 group-hover:text-white">
         {title}
       </p>
     </div>

@@ -10,7 +10,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-24 lg:py-32"
+      className="relative bg-[#070D1B] py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
@@ -22,7 +22,7 @@ export default function Services() {
 
             <h2 className="text-4xl font-bold text-white sm:text-5xl">
               Services &{" "}
-              <span className="text-[#10D312]">
+              <span className="text-[#34D399]">
                 Capabilities
               </span>
             </h2>
@@ -37,7 +37,7 @@ export default function Services() {
 
         </FadeUp>
 
-        {/* Cards */}
+        {/* Cards Grid */}
 
         <FadeLeft>
 
@@ -46,7 +46,7 @@ export default function Services() {
               mx-auto
               grid
               max-w-6xl
-              gap-5
+              gap-6
               px-4
               sm:grid-cols-2
               sm:px-0

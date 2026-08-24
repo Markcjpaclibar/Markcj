@@ -19,15 +19,15 @@ export const contactData: ContactItem[] = [
   {
     icon: Mail,
     title: "Email",
-    value: "markcjpaclibar16@gmail.com",
-    href: "mailto:markcjpaclibar16@gmail.com",
+    value: "markcjpaclibarcareer.com",
+    href: "mailto:markcjpaclibarcareer@gmail.com",
     clickable: true,
   },
   {
     icon: Phone,
     title: "Phone",
-    value: "+63 9636249982",
-    href: "tel:+639636249982",
+    value: "+63 963 6249 982",
+    href: "tel:+63 963 6249 982",
     clickable: true,
   },
   {

@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 lg:py-32"
+      className="relative bg-[#070D1B] py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
@@ -17,12 +17,14 @@ export default function Contact() {
         <FadeUp>
           <div className="text-center">
 
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#10D312]">
-              Get In Touch
-            </p>
+            <div className="mb-3 inline-flex">
+              <span className="rounded-full border border-[#34D399]/30 bg-[#0A1628]/60 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-[#34D399] backdrop-blur-xl">
+                Get In Touch
+              </span>
+            </div>
 
             <h2 className="mt-3 text-4xl font-bold text-white sm:text-5xl">
-              Let's <span className="text-[#10D312]">Connect</span>
+              Let's <span className="text-[#34D399]">Connect</span>
             </h2>
 
           </div>
@@ -36,7 +38,7 @@ export default function Contact() {
             mt-12
             grid
             max-w-4xl
-            gap-4
+            gap-5
             px-4
             sm:px-6
             md:grid-cols-2

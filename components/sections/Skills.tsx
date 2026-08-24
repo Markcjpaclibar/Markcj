@@ -1,3 +1,5 @@
+"use client";
+
 import SkillCard from "../ui/SkillCard";
 import FadeUp from "../animations/FadeUp";
 
@@ -62,32 +64,34 @@ const tools = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24">
+    <section id="skills" className="bg-[#070D1B] py-24">
       <div className="mx-auto max-w-7xl px-6">
-      <FadeUp>
-                <h2 className="text-center text-5xl font-bold text-white">
-          <span className="text-[#10D312]">Skills</span> & Technologies
-        </h2>
-      </FadeUp>
+        <FadeUp>
+          <h2 className="text-center text-5xl font-bold text-white">
+            <span className="text-[#34D399]">Skills</span> & Technologies
+          </h2>
+        </FadeUp>
 
         {/* Front-End */}
         <div className="mt-16">
           <FadeUp delay={0.15}> 
-            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#10D312]">
-            Front-End
-          </h3>
+            <div className="mb-8 flex justify-center">
+              <span className="inline-block rounded-full border border-[#34D399]/30 bg-[#0A1628]/60 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#34D399] backdrop-blur-xl">
+                Front-End
+              </span>
+            </div>
           </FadeUp>
 
           <div className="flex flex-wrap justify-center gap-4">
             {frontend.map((skill, index) => (
               <FadeUp 
-              key={skill.title}
-              delay={index * 0.07}
+                key={skill.title}
+                delay={index * 0.05}
               >
-              <SkillCard
-                title={skill.title}
-                Icon={skill.Icon}
-              />
+                <SkillCard
+                  title={skill.title}
+                  Icon={skill.Icon}
+                />
               </FadeUp>
             ))}
           </div>
@@ -95,23 +99,24 @@ export default function Skills() {
 
         {/* Back-End */}
         <div className="mt-16">
-            <FadeUp delay={0.13}>
-          <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#10D312]">
-            Back-End
-          </h3>
+          <FadeUp delay={0.15}>
+            <div className="mb-8 flex justify-center">
+              <span className="inline-block rounded-full border border-[#34D399]/30 bg-[#0A1628]/60 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#34D399] backdrop-blur-xl">
+                Back-End
+              </span>
+            </div>
           </FadeUp>
-
 
           <div className="flex flex-wrap justify-center gap-4">
             {backend.map((skill, index) => ( 
               <FadeUp
                 key={skill.title}
-                delay={index * 0.07}
+                delay={index * 0.05}
               >
-              <SkillCard
-                title={skill.title}
-                Icon={skill.Icon}
-              />
+                <SkillCard
+                  title={skill.title}
+                  Icon={skill.Icon}
+                />
               </FadeUp>
             ))}
           </div>
@@ -119,23 +124,24 @@ export default function Skills() {
 
         {/* Tools */}
         <div className="mt-16">
-
-          <FadeUp delay={0.45}>
-          <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#10D312]">
-            Tools
-          </h3>
+          <FadeUp delay={0.15}>
+            <div className="mb-8 flex justify-center">
+              <span className="inline-block rounded-full border border-[#34D399]/30 bg-[#0A1628]/60 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#34D399] backdrop-blur-xl">
+                Tools
+              </span>
+            </div>
           </FadeUp>
 
           <div className="flex flex-wrap justify-center gap-4">
             {tools.map((skill, index) => (
               <FadeUp
-              key={skill.title}
-              delay={index * 0.07}
+                key={skill.title}
+                delay={index * 0.05}
               >
-              <SkillCard
-                title={skill.title}
-                Icon={skill.Icon}
-              />
+                <SkillCard
+                  title={skill.title}
+                  Icon={skill.Icon}
+                />
               </FadeUp>
             ))}
           </div>
