@@ -22,7 +22,7 @@ const projects = [
   {
     title: "Portfolio Website for JCN Construction",
     category: "Web Development",
-    image: "/images/projects/jcncons.jpg",
+    image: "/images/projects/iPad Pro.png",
     description:
       "A modern construction company website designed to showcase the company's services, completed projects, and expertise. Built with a clean user interface, responsive layouts, and optimized performance to establish a professional online presence.",
     technologies: [
@@ -48,7 +48,7 @@ const projects = [
   {
     title: "Refined Living Furniture E-Commerce",
     category: "UI / UX Design",
-    image: "/images/projects/Galaxy Tab S8 Ultra.jpg", // Update filename/path as needed
+    image: "/images/projects/Galaxy Tab S8 Ultra.jpg",
     description:
       "A high-end interior decor and furniture web application featuring minimalist aesthetics, curated collections, and an intuitive product catalog designed to elevate home retail experiences.",
     technologies: [
@@ -56,6 +56,45 @@ const projects = [
       "UI/UX Design",
       "E-Commerce Design",
       "Prototyping",
+    ],
+  },
+  {
+    title: "EasyTransfer Direct File Sharing",
+    category: "Mobile / Web App",
+    image: "/images/projects/iPhone 13 Pro.jpg",
+    description:
+      "A local peer-to-peer file transfer application designed for fast, secure direct sharing between devices on the same network without cloud uploads.",
+    technologies: [
+      "React Native",
+      "WebRTC",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
+  },
+  {
+    title: "Bitbit House by Produkto Lokal",
+    category: "WordPress E-Commerce",
+    image: "/images/projects/Galaxy Tab S8 Ultra (1).jpg",
+    description:
+      "An e-commerce platform bridging MSMEs, local food producers, delivery services, and consumers. Designed to help support local businesses through a modern shopping interface.",
+    technologies: [
+      "WordPress",
+      "WooCommerce",
+      "PHP",
+      "Elementor",
+    ],
+  },
+  {
+    title: "ISAT U - Kwadra TBI Website",
+    category: "WordPress Development",
+    image: "/images/projects/ZenBook Duo 14.jpg",
+    description:
+      "An official portal for Kwadra Technology Business Incubator dedicated to nurturing Philippine deep tech startups, presenting awards, incubatees, and news for sustainable growth.",
+    technologies: [
+      "WordPress",
+      "PHP",
+      "Elementor",
+      "CSS3",
     ],
   },
 ];
