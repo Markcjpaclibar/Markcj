@@ -22,7 +22,7 @@ const projects = [
   {
     title: "Portfolio Website for JCN Construction",
     category: "Web Development",
-    image: "/images/projects/iPad Pro.png",
+    image: "/images/projects/jcncons.jpg",
     description:
       "A modern construction company website designed to showcase the company's services, completed projects, and expertise. Built with a clean user interface, responsive layouts, and optimized performance to establish a professional online presence.",
     technologies: [
