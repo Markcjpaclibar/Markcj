@@ -46,16 +46,16 @@ const projects = [
     ],
   },
   {
-    title: "Personal Portfolio",
-    category: "Web Development",
-    image: "/images/projects/iPad Pro.png",
+    title: "Refined Living Furniture E-Commerce",
+    category: "UI / UX Design",
+    image: "/images/projects/Galaxy Tab S8 Ultra.jpg", // Update filename/path as needed
     description:
-      "A modern developer portfolio showcasing projects, technical skills, and professional experience. Built with smooth animations, responsive layouts, and a minimalist aesthetic to create a memorable user experience.",
+      "A high-end interior decor and furniture web application featuring minimalist aesthetics, curated collections, and an intuitive product catalog designed to elevate home retail experiences.",
     technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "Framer Motion",
-      "TypeScript",
+      "Figma",
+      "UI/UX Design",
+      "E-Commerce Design",
+      "Prototyping",
     ],
   },
 ];
