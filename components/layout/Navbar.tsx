@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
-  { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
+  { name: "Services", href: "#services" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -27,7 +27,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/10 bg-[#0A1628]/80 backdrop-blur-xl"
+          ? "border-b border-white/10 bg-[#070D1B]/80 backdrop-blur-xl shadow-lg"
           : "bg-transparent"
       }`}
     >
@@ -35,36 +35,37 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-lg font-bold tracking-wide text-white transition hover:opacity-80"
+          className="text-xl font-extrabold tracking-wider text-white transition-opacity hover:opacity-90"
         >
           MCP<span className="text-[#34D399]">.</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-gray-300 transition-colors hover:text-[#34D399]"
+              className="text-sm font-medium text-gray-300 transition-colors duration-200 hover:text-[#34D399]"
             >
               {link.name}
             </Link>
           ))}
 
-          {/* Clean Glass Button */}
+          {/* Solid Mint Button matching reference image */}
           <a
             href="#contact"
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-[#34D399]/40 bg-[#34D399]/60 px-6 py-2.5 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-[#34D399] hover:bg-[#34D399] hover:text-[#070D1B] hover:shadow-[0_0_25px_rgba(52,211,153,0.45)]"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#34D399] px-5 py-2.5 text-sm font-semibold text-[#070D1B] transition-all duration-200 hover:bg-[#2ce09f] hover:shadow-[0_0_20px_rgba(52,211,153,0.4)]"
           >
-            <span className="relative z-10">Get in touch</span>
+            <span>Get in touch</span>
+            <ArrowUpRight className="h-4 w-4 stroke-[2.5]" />
           </a>
         </nav>
 
         {/* Mobile Toggle Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="text-white md:hidden focus:outline-none"
+          className="rounded-lg p-2 text-gray-300 transition-colors hover:text-white md:hidden focus:outline-none"
           aria-label="Toggle Navigation Menu"
         >
           {menuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -77,14 +78,14 @@ export default function Navbar() {
           menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="border-t border-white/10 bg-[#0A1628]/95 px-6 py-6 backdrop-blur-2xl">
+        <div className="border-t border-white/10 bg-[#070D1B]/95 px-6 py-6 backdrop-blur-2xl">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-base font-medium text-gray-200 transition hover:text-[#34D399]"
+                className="text-base font-medium text-gray-200 transition-colors hover:text-[#34D399]"
               >
                 {link.name}
               </Link>
@@ -93,9 +94,10 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 rounded-full border border-[#34D399] bg-[#34D399] py-3 text-center font-semibold text-[#070D1B] shadow-[0_0_20px_rgba(52,211,153,0.3)]"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[#34D399] py-3 text-center text-sm font-semibold text-[#070D1B] transition-all hover:bg-[#2ce09f]"
             >
-              Get in touch
+              <span>Contact</span>
+              <ArrowUpRight className="h-4 w-4 stroke-[2.5]" />
             </a>
           </nav>
         </div>
