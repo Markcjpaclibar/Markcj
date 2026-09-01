@@ -1,100 +1,55 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { LucideIcon } from "lucide-react";
-
-type Props = {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-};
+import { Check } from "lucide-react";
+import { ServiceItem } from "./servicesData";
 
 export default function ServiceCard({
   icon: Icon,
   title,
   description,
-}: Props) {
+  isCoreOffer,
+  features,
+}: ServiceItem) {
   return (
-    <motion.div
-      whileHover={{
-        y: -10,
-      }}
-      transition={{
-        duration: 0.3,
-      }}
-      className="
-        group
-        relative
-        overflow-hidden
-        rounded-3xl
-        border
-        border-white/10
-        bg-[#0A1628]/50
-        p-8
-        backdrop-blur-xl
-        transition-all
-        duration-300
-        hover:border-[#34D399]/50
-        hover:bg-[#0A1628]/80
-        hover:shadow-[0_0_40px_rgba(52,211,153,0.15)]
-      "
+    <div
+      className={`relative flex flex-col justify-between rounded-2xl border p-6 transition-all duration-300 ${
+        isCoreOffer
+          ? "border-[#34D399]/40 bg-[#0A1628]/90 shadow-[0_0_25px_rgba(52,211,153,0.1)]"
+          : "border-white/10 bg-[#0A1628]/40 hover:border-white/20 hover:bg-[#0A1628]/70"
+      }`}
     >
-      {/* Mint Accent Bar */}
-      <div className="absolute left-8 top-0 h-1 w-12 rounded-full bg-[#34D399] transition-all duration-300 group-hover:w-20 group-hover:shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
+      <div>
+        {/* Top Header Row */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-[#34D399]">
+            <Icon className="h-6 w-6 stroke-[1.75]" />
+          </div>
 
-      {/* Icon Badge Container */}
-      <div
-        className="
-          inline-flex
-          rounded-2xl
-          border
-          border-white/10
-          bg-white/[0.03]
-          p-3.5
-          backdrop-blur-md
-          transition-all
-          duration-300
-          group-hover:-translate-y-1
-          group-hover:scale-105
-          group-hover:border-[#34D399]/30
-          group-hover:bg-[#34D399]/10
-        "
-      >
-        <Icon
-          size={28}
-          strokeWidth={1.8}
-          className="text-[#34D399]"
-        />
+          {isCoreOffer && (
+            <span className="rounded-full border border-[#34D399]/40 bg-[#34D399]/10 px-3 py-1 text-xs font-semibold text-[#34D399]">
+              Core offer
+            </span>
+          )}
+        </div>
+
+        {/* Title & Description */}
+        <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+        <p className="text-sm leading-relaxed text-gray-400 mb-6">
+          {description}
+        </p>
+
+        {/* Features List */}
+        <ul className="space-y-3">
+          {features.map((feature, idx) => (
+            <li key={idx} className="flex items-start gap-3">
+              <Check className="h-4 w-4 shrink-0 text-[#34D399] mt-0.5 stroke-[2.5]" />
+              <span className="text-sm text-gray-300 leading-tight">
+                {feature}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      {/* Title */}
-      <h3
-        className="
-          mt-6
-          text-xl
-          font-semibold
-          text-white
-          transition-colors
-          duration-300
-          group-hover:text-[#34D399]
-        "
-      >
-        {title}
-      </h3>
-
-      {/* Description */}
-      <p
-        className="
-          mt-4
-          leading-8
-          text-gray-400
-          transition-colors
-          duration-300
-          group-hover:text-gray-300
-        "
-      >
-        {description}
-      </p>
-    </motion.div>
+    </div>
   );
 }

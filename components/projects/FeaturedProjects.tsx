@@ -127,17 +127,23 @@ export default function FeaturedProjects() {
           <FadeLeft>
             <div className="max-w-md">
 
-              <div className="mb-3 inline-flex">
-                <span className="rounded-full border border-[#34D399]/30 bg-[#0A1628]/60 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-[#34D399] backdrop-blur-xl">
+              {/* Tagline Badge matched with Services */}
+              <div className="mb-4 flex items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#34D399]/30 bg-[#34D399]/10 px-3.5 py-1 text-xs font-mono font-medium text-[#34D399]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#34D399] animate-pulse" />
                   Selected Works
                 </span>
               </div>
 
+              <span className="font-mono text-xs uppercase tracking-widest text-gray-400">
+                PORTFOLIO
+              </span>
+
               <h2 className="mt-3 text-4xl font-bold leading-tight text-white sm:text-5xl">
-                Featured <span className="text-[#34D399]">Projects</span>
+                Featured <span>Projects</span>
               </h2>
 
-              <p className="mt-7 text-base leading-8 text-gray-400">
+              <p className="mt-6 text-base leading-8 text-gray-400">
                 Explore a collection of projects that showcase my passion for
                 creating modern websites and digital experiences. From business
                 websites to e-commerce platforms, every project combines

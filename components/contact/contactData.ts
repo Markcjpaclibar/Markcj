@@ -26,7 +26,7 @@ export const contactData: ContactItem[] = [
   {
     icon: Phone,
     title: "Phone",
-    value: "+63 963 6249 982",
+    value: "+63 956 9378 612",
     href: "tel:+63 963 6249 982",
     clickable: true,
   },
